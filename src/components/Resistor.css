@@ -1,0 +1,466 @@
+/* @font-face {
+    font-family: "greenLights";
+    src: url(public/Greenlights-3XmX.otf) format("truetype");
+  } */
+  
+  html {
+      min-height: 100vh;
+      padding: 0;
+      min-width: 100vw;
+    }
+    
+  body {
+      height: 100vh;
+      padding: 0;
+      background-color: white;
+      min-width: 100vw;
+    }
+    
+  h3 {
+      text-align: center;
+    }
+    
+  #page-container {
+        position: relative;
+        min-height: 100vh;
+        display: block;
+        
+  }
+    
+    
+    #sub-page-container {
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: auto;
+      min-height: 100vh;
+      padding-top: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+      background-color: white;
+      padding-bottom: 2.5rem;
+    }
+  
+  .title-text {
+    font-family: "greenLights";
+    font-size: xx-large;
+    z-index: 1;
+  }
+  
+  #component-container {
+      display: grid;
+      grid-template-columns: 230px 500px 230px;
+      grid-template-rows: 105px 105px;
+      gap: 0px 0px;
+      grid-template-areas:
+        "left-top component right-top"
+        "left-bottom component right-bottom";
+    }
+    
+  #component {
+      display: inline-flex;
+      border-style: solid;
+      border-top-width: 5px;
+      border-bottom-width: 5px;
+      border-left-width: 5px;
+      border-right-width: 5px;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      overflow: hidden;
+      border-top-right-radius: 80px;
+      border-bottom-right-radius: 80px;
+      border-color: black;
+      grid-area: component;
+  }
+  
+  #left-top {
+      grid-area: left-top;
+      border-bottom-style: solid;
+      border-bottom-color: black;
+      border-bottom-width: 2px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+  }
+  
+  #left-bottom {
+    grid-area: left-bottom;
+    border-top-style: solid;
+    border-top-color: black;
+    border-top-width: 2px;
+  }
+  
+  #right-top {
+      grid-area: right-top;
+      border-bottom-style: solid;
+      border-bottom-color: black;
+      border-bottom-width: 2px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+      position: relative;
+  }
+  
+  #signout-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  #right-bottom {
+      grid-area: right-bottom;
+      
+      border-top-style: solid;
+      border-top-color: black;
+      border-top-width: 2px;
+  }
+  
+  .color-band {
+      height: 200px;
+      width: 50px;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  
+  .color-band-last {
+      height: 200px;
+      width: 50px;
+      margin-left: 60px;
+      margin-right: 10px;
+  }
+  
+  .color-band-first {
+      height: 200px;
+      width: 50px;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  
+  #band-count-picker-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+  }
+  
+  #component-value {
+      font-size: x-large;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+  }
+  
+  #color-picker-container {
+      display: inline-flex;
+      justify-content: center;
+      width: 775px;
+      min-height: 400px;
+      height: fit-content;
+      border-color: black;
+      border-style: solid none solid none;
+      border-top-width: 5px;
+      border-bottom-width: 5px;
+      padding-left: 10px;
+      margin-left: 92px;
+      margin-right: 92px;
+  }
+  
+  .color-picker-column {
+      width: 125px;
+      border-color: black;
+      border-style: none dashed none dashed;
+      border-right-width: 1px;
+      border-left-width: 1px;
+  }
+  
+  .color-picker-column label {
+      font-size: x-large;
+  }
+  
+  .column-title {
+      width: 125px;
+      display:table;
+      margin:0 auto;
+      text-align: justify;
+      text-align-last: center;
+      font-weight: bold;
+      font-size: large;
+      border-bottom-style: solid;
+      border-bottom-color: black;
+      border-bottom-width: 2px;
+  }
+  
+  #save-button-container {
+      display: none;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+  }
+  
+  /* The snackbar - position it at the bottom and in the middle of the screen */
+  .notice {
+      visibility: hidden; /* Hidden by default. Visible on click */
+      min-width: 250px; /* Set a default minimum width */
+      margin-left: -125px; /* Divide value of min-width by 2 */
+      background-color: #333; /* Black background color */
+      color: #fff; /* White text color */
+      text-align: center; /* Centered text */
+      border-radius: 2px; /* Rounded borders */
+      padding: 16px; /* Padding */
+      position: fixed; /* Sit on top of the screen */
+      z-index: 1; /* Add a z-index if needed */
+      left: 50%; /* Center the snackbar */
+      bottom: 30px; /* 30px from the bottom */
+    }
+    
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    .show {
+      visibility: visible; /* Show the snackbar */
+      /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+      However, delay the fade out process for 2.5 seconds */
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+  
+    #login-form-container 
+    {
+        display: none;
+        border: solid;
+        border-color: grey;
+        border-width: 1px;
+    }
+  
+    .centered {
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+    }
+    
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+    
+    @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+    
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+  
+    #saved-comps-container {
+        margin-top: 5px;
+      display: inline-flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 960px;
+      height: fit-content;
+      box-sizing: border-box;
+    }
+    
+  #small-comp-template {
+      display: none;
+  }
+  
+  .small-comp-container {
+        overflow: hidden;
+        box-sizing: border-box;
+        border: solid;
+        border-color: black;
+        border-width: 1px;
+        height: 100px;
+        width: 320px;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: .5fr .5fr .25fr;
+        gap: 0px 0px;
+        grid-template-areas:
+      
+        "small-comp-tl small-comp-body small-comp-tr"
+        "small-comp-bl small-comp-body small-comp-br"
+        "small-comp-value small-comp-value small-comp-value";
+  }
+    
+  .small-comp-body { grid-area: small-comp-body;
+      overflow: hidden;
+      display: flex;
+      box-sizing: border-box;
+      border: solid;
+      border-color: black;
+      border-width: 2px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px; 
+      border-top-left-radius: 30px; 
+      border-top-right-radius: 30px;  
+  }
+   
+    
+  .small-comp-tl { grid-area: small-comp-tl;
+      box-sizing: border-box;
+      border-bottom-style: solid;
+      border-bottom-color: black;
+      border-bottom-width: 1px;
+  }
+    
+  .small-comp-bl { grid-area: small-comp-bl;
+      box-sizing: border-box;
+      border-top-style: solid;
+      border-top-color: black;
+      border-top-width: 1px;
+  }
+    
+  .small-comp-tr { grid-area: small-comp-tr; 
+      box-sizing: border-box;
+      border-bottom-style: solid;
+      border-bottom-color: black;
+      border-bottom-width: 1px;
+      display: flex;
+      justify-content: flex-end;
+  }
+    
+  .small-comp-br { grid-area: small-comp-br;
+      box-sizing: border-box;
+      border-top-style: solid;
+      border-top-color: black;
+      border-top-width: 1px; 
+  }
+    
+  .small-comp-value { grid-area: small-comp-value;
+      display: flex;
+      justify-content: center;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      align-content: stretch;
+      align-self: auto;
+      flex: 0 0 auto;
+  }
+    
+  .small-color-band {
+      height: 80px;
+      width: 15px;
+      margin-left: 6px;
+      margin-right: 6px;
+  }
+  
+  .small-color-band-last {
+      height: 80px;
+      width: 15px;
+      margin-left: 15px;
+      margin-right: 2px;
+  }
+  
+  .red {
+      background-color: red;
+  }
+  
+  .orange {
+      background-color: orange;
+  }
+  
+  .yellow {
+      background-color: yellow;
+  }
+  
+  .green {
+      background-color: green;
+  }
+  
+  .blue {
+      background-color: blue;
+  }
+  
+  .violet {
+      background-color: violet;
+  }
+  
+  .gold {
+      background-color: gold;
+  }
+  
+  .silver {
+      background-color: silver;
+  }
+  
+  .black {
+      background-color: black;
+      color: white;
+  }
+  
+  .brown {
+      background-color: saddlebrown;
+      color: white;
+  }
+  
+  .white {
+        background-color: white;
+          border: none dashed none dashed;
+          border-width: 1px;
+          border-color: black;   
+  }
+  
+  .grey {
+      background-color: grey;
+  }
+  
+  .delete-button {
+      background-color: rgb(236, 101, 101);
+      width: 1rem;
+      height: 1rem;
+      padding: 0;
+      cursor: pointer;
+  }
+    
+    #clear-all-container {
+        display: none;
+    }
+    
+   .delete-button::before,
+    .delete-button::after {
+        content: '';
+        background: #333;
+        display: block;
+        transform: rotate(45deg) translateX(0px);
+    }
+    
+    .delete-button::after {
+        transform: rotate(-45deg) translateX(0px);
+    } 
+  
+    #footer {
+      position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem; 
+        text-align: center;
+    }
