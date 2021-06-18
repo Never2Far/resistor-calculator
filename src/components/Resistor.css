@@ -1,7 +1,7 @@
-/* @font-face {
+@font-face {
     font-family: "greenLights";
-    src: url(public/Greenlights-3XmX.otf) format("truetype");
-  } */
+    src: url(../fonts/Greenlights-3XmX.otf) format("truetype");
+  }
   
   html {
       min-height: 100vh;
