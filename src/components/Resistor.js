@@ -1,6 +1,8 @@
 import React from 'react'
 import './Resistor.css'
 import Container from 'react-bootstrap/Container'
+import ColorCode from './ColorCode'
+
 
 const Resistor = () => {
 
@@ -11,7 +13,10 @@ return (
                 <span className="title-text">Resistor</span>
             </div>
             <div id="left-bottom"></div>
-            <div id="component"></div>
+            <div id="component">
+            <ColorCode />
+
+            </div>
             <div id="right-top">
                 <button id="signout-button">Sign Out</button>
                 <span className="title-text">Calculator</span>
