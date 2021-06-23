@@ -2,10 +2,13 @@ import React from 'react'
 
 const ColorBand = (props) => {
 
-// const bandColor = props.color
+const bandColor = props.color
 
 
-// return()
+return(
+
+    <span>{bandColor}</span>
+)
 
 }
 
