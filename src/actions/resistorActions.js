@@ -1,16 +1,5 @@
 import { bindActionCreators } from "redux"
 
-const resisterActions = bindActionCreators({
-
-
-getValue
-
-
-
-    
-})
-
-
 
     export function getValue(colorCode) {
 
@@ -18,5 +7,14 @@ getValue
     
     }
 
+    export function getColorCodeFromValue(value) {
+        return ["yellow", "blue", "green", "gold"]
+    }
 
-    export default resisterActions
+    const resistorActions = bindActionCreators({
+
+        getValue,
+        getColorCodeFromValue
+          
+        })
+    export default resistorActions
