@@ -1,8 +1,13 @@
 import React from 'react'
+import {useSelector, useDispatch } from 'react-redux'
 import ColorBand from './ColorBand'
 
 const ColorCode = () => {
-  const   colorCode = ["yellow", "blue", "green", "gold"]
+//   const   colorCode = ["yellow", "blue", "green", "gold"]
+
+const colorCode = useSelector(state => state.resistor.colorCode)
+
+
 
   const checkPos = (color) => {
       switch (colorCode.indexOf(color)) {
@@ -24,7 +29,7 @@ const ColorCode = () => {
 
 
 
-            <ColorBand color={color} pos={checkPos(color)}/>
+            <ColorBand color={color} pos={checkPos(color)} key={colorCode.indexOf(color)}/>
 
             
 
