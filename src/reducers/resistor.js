@@ -1,15 +1,17 @@
-function resistor(state = {}, action)  {
+function resistor(state = {colorCode: ["yellow", "blue", "green", "gold"], 
+                            bandCount: 4}, action)  
+{
 
 let count = 0
 
 
 switch (action.type) {
-    case 'ADDING_RESISTOR':
-        console.log("Adding Resistor...")
+    case 'DRAWING_RESISTOR':
+        console.log("Drawing Resistor...")
         return state
         
-        case 'ADD_RESISTOR':
-            console.log("Resistor Added")
+        case 'DRAW_RESISTOR':
+            console.log("Resistor displayed")
             count += 1
             return Object.assign({}, {count})
 
