@@ -1,10 +1,14 @@
 function colors(state = {}, action) {
 
 
+switch (action) {
+    case 'FETCH_COLORS':
+        
+        return state
 
-return state
-
-
+    default:
+        return state
+}
 
 }
 
