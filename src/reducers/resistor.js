@@ -1,5 +1,6 @@
 function resistor(state = {colorCode: ["yellow", "blue", "green", "gold"], 
-                            bandCount: 4}, action)  
+                            bandCount: 4,
+                        value: 500}, action)  
 {
 
 let count = 0
