@@ -1,27 +1,26 @@
-function resistor(state = {colorCode: ["yellow", "blue", "green", "gold"], 
-                            bandCount: 4,
-                        value: 500}, action)  
-{
+function resistor(
+    state = {
+        colorCode: ['yellow', 'blue', 'green', 'gold'],
+        bandCount: 4,
+        value: 500,
+    },
+    action
+) {
+    let count = 0
 
-let count = 0
+    switch (action.type) {
+        case 'DRAWING_RESISTOR':
+            console.log('Drawing Resistor...')
+            return state
 
-
-switch (action.type) {
-    case 'DRAWING_RESISTOR':
-        console.log("Drawing Resistor...")
-        return state
-        
         case 'DRAW_RESISTOR':
-            console.log("Resistor displayed")
+            console.log('Resistor displayed')
             count += 1
-            return Object.assign({}, {count})
+            return Object.assign({}, { count })
 
-
-    default:
-        return state
-        
-}
-
+        default:
+            return state
+    }
 }
 
 export default resistor
