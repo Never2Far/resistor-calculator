@@ -8,7 +8,6 @@ import Resistor from './components/Resistor';
 function App() {
   return (
     <Container>
-      <h1>Resistor Calculator!</h1>
     <LoginButton />
     <LogoutButton />
     <Resistor />
