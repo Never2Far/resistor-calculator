@@ -1,20 +1,11 @@
-import { bindActionCreators } from "redux"
+import { bindActionCreators } from 'redux'
 
+export function getValue(colorCode) {
+    return 'value placeholder'
+}
 
-    export function getValue(colorCode) {
+export function getColorCodeFromValue(value) {
+    return ['yellow', 'blue', 'green', 'gold']
+}
 
-        return 'value placeholder'
-    
-    }
-
-    export function getColorCodeFromValue(value) {
-        return ["yellow", "blue", "green", "gold"]
-    }
-
-    const resistorActions = bindActionCreators({
-
-        getValue,
-        getColorCodeFromValue
-          
-        })
-    export default resistorActions
+export default resistorActions

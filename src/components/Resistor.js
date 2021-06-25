@@ -3,29 +3,25 @@ import './Resistor.css'
 import Container from 'react-bootstrap/Container'
 import ColorCode from './ColorCode'
 
-
 const Resistor = () => {
-
-return (
-    <Container>
-    <div id="component-container">
-            <div id="left-top">
-                <span className="title-text">Resistor</span>
+    return (
+        <Container>
+            <div id="component-container">
+                <div id="left-top">
+                    <span className="title-text">Resistor</span>
+                </div>
+                <div id="left-bottom"></div>
+                <div id="component">
+                    <ColorCode />
+                </div>
+                <div id="right-top">
+                    <button id="signout-button">Sign Out</button>
+                    <span className="title-text">Calculator</span>
+                </div>
+                <div id="right-bottom"></div>
             </div>
-            <div id="left-bottom"></div>
-            <div id="component">
-            <ColorCode />
-
-            </div>
-            <div id="right-top">
-                <button id="signout-button">Sign Out</button>
-                <span className="title-text">Calculator</span>
-            </div>
-            <div id="right-bottom"></div>
-    </div>
-    </Container>
-)
-
+        </Container>
+    )
 }
 
 export default Resistor
