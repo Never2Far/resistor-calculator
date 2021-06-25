@@ -8,8 +8,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
+// import rootReducer from './reducers/rootReducer';
 import resistorActions from './actions/resistorActions'
-import colorsActions from './actions/colorsActions'
+import {fetchColors} from './actions/colorsActions'
 
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,15 +19,15 @@ const store = createStore(rootReducer,
   composeEnhancer(applyMiddleware(thunk))
   );
 
-  const allActions = bindActionCreators(
-   {
-     resistor: resistorActions,
-     colors: colorsActions
-    },
-    store.dispatch
-  )
+  // const allActions = bindActionCreators(
+  //  {
+  //    resistor: resistorActions,
+  //    colors: colorsActions
+  //   },
+  //   store.dispatch
+  // )
 
-
+store.dispatch(fetchColors())
 
 
 ReactDOM.render(
