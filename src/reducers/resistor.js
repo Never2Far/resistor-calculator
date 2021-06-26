@@ -9,14 +9,13 @@ function resistor(
     let count = 0
 
     switch (action.type) {
-        case 'DRAWING_RESISTOR':
-            console.log('Drawing Resistor...')
-            return state
-
-        case 'DRAW_RESISTOR':
-            console.log('Resistor displayed')
-            count += 1
-            return Object.assign({}, { count })
+        case 'SET_BAND_COUNT':
+            console.log(`band count: ${action.payload}`)
+            return Object.assign(
+                {},
+                { ...state },
+                { bandCount: action.payload }
+            )
 
         default:
             return state
