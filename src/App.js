@@ -1,4 +1,5 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container'
 import LoginButton from './components/LoginButton'
 import LogoutButton from './components/LogoutButton'

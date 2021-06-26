@@ -12,10 +12,12 @@ const BandCountPicker = () => {
 
     return (
         <>
+            <br></br>
+            {'Choose The number of bands on the resistor: '}
             <ToggleButtonGroup
                 type="radio"
                 name="band-count"
-                value={count}
+                defaultValue={count}
                 variant="primary"
                 onChange={(value) => dispatch(setBandCount(value))}
             >
@@ -24,6 +26,7 @@ const BandCountPicker = () => {
                         key={idx}
                         value={countChoice}
                         checked={count === countChoice}
+                        variant="primary"
                     >
                         {countChoice}
                     </ToggleButton>
