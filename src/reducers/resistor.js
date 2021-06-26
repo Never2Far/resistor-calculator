@@ -15,6 +15,13 @@ function resistor(
                 { bandCount: action.payload }
             )
 
+        case 'SET_COLOR_CODE':
+            console.log(`color code: ${action.payload}`)
+            return Object.assign(
+                {},
+                { ...state },
+                { colorCode: action.payload }
+            )
         default:
             return state
     }
