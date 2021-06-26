@@ -6,8 +6,6 @@ function resistor(
     },
     action
 ) {
-    let count = 0
-
     switch (action.type) {
         case 'SET_BAND_COUNT':
             console.log(`band count: ${action.payload}`)

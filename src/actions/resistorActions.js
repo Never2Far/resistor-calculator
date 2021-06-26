@@ -11,5 +11,3 @@ export function setBandCount(count) {
         dispatch({ type: 'SET_BAND_COUNT', payload: count })
     }
 }
-
-export default resistorActions
