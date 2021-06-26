@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import { setBandCount } from '../actions/resistorActions'
+import { useSelector, useDispatch } from 'react-redux'
 
 const BandCountPicker = () => {
-    const [count, setCount] = useState(4)
+    const dispatch = useDispatch()
+    const count = useSelector((state) => state.resistor.bandCount)
 
-    const handleChange = (e) => {
-        setCount(e.currentTarget.value)
-        setBandCount(count)
-    }
+    const countChoices = [3, 4, 5, 6]
 
     return (
         <>
@@ -17,12 +16,18 @@ const BandCountPicker = () => {
                 type="radio"
                 name="band-count"
                 value={count}
-                onChange={handleChange}
+                variant="primary"
+                onChange={(value) => dispatch(setBandCount(value))}
             >
-                <ToggleButton value={3}>3</ToggleButton>
-                <ToggleButton value={4}>4</ToggleButton>
-                <ToggleButton value={5}>5</ToggleButton>
-                <ToggleButton value={6}>6</ToggleButton>
+                {countChoices.map((countChoice, idx) => (
+                    <ToggleButton
+                        key={idx}
+                        value={countChoice}
+                        checked={count === countChoice}
+                    >
+                        {countChoice}
+                    </ToggleButton>
+                ))}
             </ToggleButtonGroup>
         </>
     )
