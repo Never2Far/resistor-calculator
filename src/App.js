@@ -6,6 +6,7 @@ import LogoutButton from './components/LogoutButton'
 import Profile from './components/Profile'
 import Resistor from './components/Resistor'
 import BandCountPicker from './components/BandCountPicker'
+import ColorPicker from './components/ColorPicker'
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <LogoutButton />
             <Resistor />
             <BandCountPicker />
+            <ColorPicker />
             <Profile />
         </Container>
     )
