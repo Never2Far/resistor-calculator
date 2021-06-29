@@ -1,15 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import ColorChoice from './ColorChoice'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
+import { setDigit } from '../actions/resistorActions'
 
 const ColorChoiceColumn = (props) => {
     const name = props.name[0]
     const displayName = props.name[1]
 
+    const [radioValue, setRadioValue] = useState()
+
     const colors = useSelector((state) => state.colors.colors)
+    const colorCode = useSelector((state) => state.resistor.colorCode)
+
+    const dispatch = useDispatch()
     // console.log(colors)
     console.log(colors['BLACK'])
     const colorKeys = [
@@ -49,21 +55,11 @@ const ColorChoiceColumn = (props) => {
             break
     }
     console.log(colorKeys)
-    // const [
-    //     BLACK,
-    //     BROWN,
-    //     RED,
-    //     ORANGE,
-    //     YELLOW,
-    //     GREEN,
-    //     BLUE,
-    //     VIOLET,
-    //     GREY,
-    //     WHITE,
-    //     GOLD,
-    //     SILVER,
-    // ] = COLORS
-    // [BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET, GREY, WHITE, GOLD, SILVER]
+
+    function handleChange(color) {
+        console.log(color)
+        dispatch(setDigit(name, color))
+    }
 
     return (
         <>
@@ -76,7 +72,10 @@ const ColorChoiceColumn = (props) => {
                     name={`${name}-picker`}
                 >
                     {colorKeys.map((colorKey) => (
-                        <ColorChoice color={colors[colorKey]} />
+                        <ColorChoice
+                            color={colors[colorKey]}
+                            handleClick={handleChange}
+                        />
                     ))}
                 </ButtonGroup>
             </div>
@@ -85,6 +84,22 @@ const ColorChoiceColumn = (props) => {
 }
 
 export default ColorChoiceColumn
+
+// const [
+//     BLACK,
+//     BROWN,
+//     RED,
+//     ORANGE,
+//     YELLOW,
+//     GREEN,
+//     BLUE,
+//     VIOLET,
+//     GREY,
+//     WHITE,
+//     GOLD,
+//     SILVER,
+// ] = COLORS
+// [BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET, GREY, WHITE, GOLD, SILVER]
 
 //     <div id="digit1-col" class="color-picker-column"><span class='column-title'>Band 1</span></div>
 //     <div id="digit2-col" class="color-picker-column"><span class='column-title'>Band 2</span></div>
