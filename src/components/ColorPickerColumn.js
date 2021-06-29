@@ -76,7 +76,7 @@ const ColorPickerColumn = (props) => {
                     onChange={handleChange}
                     value={columnValue}
                 >
-                    {props.choices.map((color) => (
+                    {colorKeys.map((color) => (
                         <ToggleButton
                             className={props.COLORS[color].name}
                             value={props.COLORS[color].name}
