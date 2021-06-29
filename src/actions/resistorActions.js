@@ -1,23 +1,93 @@
-// export function setValueFromColorCode(colorCode) {
-//     const bandCount = colorCode.length
-//     for (const color in colorCode) {
-//     }
-//     let x
-//     switch (bandCount) {
-//         case 3:
-//         case 4:
-//             x = parseInt(`${digit1}` + `${digit2}`) * multiplier
-//             break
-//         case 5:
-//         case 6:
-//             x = parseInt(`${digit1}` + `${digit2}` + `${digit3}`) * multiplier
-//             break
-//         default:
-//             break
-//     }
-// }
+export function setDigit(digitName, color) {
+    return (dispatch, getState) => {
+        console.log(digitName)
+        console.log(color)
+        const colors = getState().colors.colors
+        console.log(color.toUpperCase())
+        console.log(colors[color.toUpperCase()].digit)
+        let value
+        if (['digit1', 'digit2', 'digit3'].includes(digitName))
+            value = colors[color.toUpperCase()].digit
+        else value = colors[color.toUpperCase()][digitName]
 
-export function setColorCodeFromValue(value) {
+        dispatch({ type: 'SET_DIGIT', payload: { digitName, value } })
+    }
+}
+
+export function updateValue() {
+    return (dispatch, getState) => {
+        const bandCount = getState().resistor.bandCount
+        let digits = `${value}`.split('')
+        const newValue = { value }
+        console.log(newValue)
+        newValue.digit1 = parseInt(digits.shift())
+        newValue.digit2 = parseInt(digits.shift())
+
+        switch (bandCount) {
+            case 3:
+            case 4:
+                newValue.multiplier = parseInt(`1` + `${digits.join('')}`)
+                break
+            case 5:
+            case 6:
+                newValue.digit3 = parseInt(digits.shift())
+                newValue.multiplier = parseInt(`1` + `${digits.join('')}`)
+                break
+            default:
+                break
+        }
+        console.log(newValue)
+        dispatch({ type: 'SET_VALUE', payload: newValue })
+    }
+}
+
+export function setValueFromColorCode(colorCode) {
+    return (dispatch, getState) => {
+        const bandCount = colorCode.length
+        const colors = getState().colors.colors
+        // for (const color in colorCode) {
+        const digits = {}
+        let value
+        // }
+        // let x
+        // for (color in colorCode) {
+        switch (bandCount) {
+            case 3:
+            case 4:
+                digits.digit1 = colors[colorCode[0].toUpperCase()].digit1
+                digits.digit2 = colors[colorCode[1].toUpperCase()].digit2
+                digits.multiplier =
+                    colors[colorCode[2].toUpperCase()].multiplier
+                value =
+                    parseInt(`${digits.digit1}` + `${digits.digit2}`) *
+                    digits.multiplier
+                console.log(value)
+                break
+            case 5:
+            case 6:
+                digits.digit1 = colors[colorCode[0].toUpperCase()].digit1
+                digits.digit2 = colors[colorCode[1].toUpperCase()].digit2
+                digits.digit3 = colors[colorCode[2].toUpperCase()].digit3
+                digits.multiplier =
+                    colors[colorCode[3].toUpperCase()].multiplier
+                value =
+                    parseInt(
+                        `${digits.digit1}` +
+                            `${digits.digit2}` +
+                            `${digits.digit3}`
+                    ) * digits.multiplier
+                console.log(value)
+                break
+            default:
+                break
+        }
+
+        dispatch({ type: 'SET_VALUE', payload: value })
+    }
+    // }
+}
+
+export function updateColorCode(value) {
     return ['yellow', 'blue', 'green', 'gold']
 }
 
