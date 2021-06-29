@@ -46,17 +46,22 @@ function resistor(
 
         case 'SET_COLOR_CODE':
             console.log(`color code: ${action.payload}`)
-            return Object.assign(
-                {},
-                { ...state },
-                { colorCode: action.payload }
-            )
+            const colorCode = action.payload
+
+            return Object.assign({}, { ...state }, { colorCode })
 
         case 'SET_VALUE':
             console.log(action.payload)
             return Object.assign({}, { ...state }, action.payload)
         default:
             return state
+
+        case 'SET_DIGIT':
+            console.log(action.payload)
+            const update = {}
+            update[action.payload.digitName] = action.payload.value
+            console.log(update)
+            return Object.assign({}, { ...state }, update)
     }
 }
 
