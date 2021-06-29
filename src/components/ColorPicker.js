@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import ColorChoiceColumn from './ColorChoiceColumn'
+// import ColorChoiceColumn from './ColorChoiceColumn'
 import './Resistor.css'
+import ColorPickerColumn from './ColorPickerColumn'
 
 const ColorPicker = () => {
     const bandCount = useSelector((state) => state.resistor.bandCount)
-
+    const colorCode = useSelector((state) => state.resistor.colorCode)
+    const COLORS = useSelector((state) => state.colors.colors)
     // let columnNames = [['digit1', 'Band 1'], ['digit2', 'Band 2'], ['digit3', 'Band 3'], ['multiplier', 'Multiplier'], ['tolerance', 'Tolerance'], ['temp-coef', 'Temperature Coefficient']]
     let columnNames
     switch (bandCount) {
@@ -47,8 +49,12 @@ const ColorPicker = () => {
 
     return (
         <div id="color-picker-container">
-            {columnNames.map((name) => (
-                <ColorChoiceColumn name={name} />
+            {columnNames.map((columnName, idx) => (
+                <ColorPickerColumn
+                    columnName={columnName}
+                    key={idx}
+                    COLORS={COLORS}
+                />
             ))}
         </div>
     )
