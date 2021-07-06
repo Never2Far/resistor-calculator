@@ -50,7 +50,10 @@ function colors(state = { colors: [], loading: false, loaded: false }, action) {
                 {},
                 { ...state },
                 { colors },
-                { loading: false, loaded: true }
+                {
+                    loading: false,
+                    loaded: true,
+                }
             )
 
         default:
