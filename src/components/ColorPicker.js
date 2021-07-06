@@ -1,51 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 // import ColorChoiceColumn from './ColorChoiceColumn'
 import './Resistor.css'
 import ColorPickerColumn from './ColorPickerColumn'
+import { updateColorCode } from '../actions/resistorActions'
 
-const ColorPicker = () => {
-    const bandCount = useSelector((state) => state.resistor.bandCount)
-    const colorCode = useSelector((state) => state.resistor.colorCode)
+const ColorPicker = (props) => {
+    // const bandCount = useSelector((state) => state.resistor.bandCount)
+    // const currentColorCode = useSelector((state) => state.resistor.colorCode)
+    const bandCount = props.bandCount
+    const currentColorCode = props.colorCode
     const COLORS = useSelector((state) => state.colors.colors)
+
+    const [colorCode, setColorCode] = useState(currentColorCode)
     // let columnNames = [['digit1', 'Band 1'], ['digit2', 'Band 2'], ['digit3', 'Band 3'], ['multiplier', 'Multiplier'], ['tolerance', 'Tolerance'], ['temp-coef', 'Temperature Coefficient']]
     let columnNames
     switch (bandCount) {
         case 3:
             columnNames = [
-                ['digit1', 'Band 1'],
-                ['digit2', 'Band 2'],
-                ['multiplier', 'Multiplier'],
+                ['digit1', 'Band 1', colorCode[0], 0],
+                ['digit2', 'Band 2', colorCode[1], 1],
+                ['multiplier', 'Multiplier', colorCode[2], 2],
             ]
             break
         case 4:
             columnNames = [
-                ['digit1', 'Band 1'],
-                ['digit2', 'Band 2'],
-                ['multiplier', 'Multiplier'],
-                ['tolerance', 'Tolerance'],
+                ['digit1', 'Band 1', colorCode[0], 0],
+                ['digit2', 'Band 2', colorCode[1], 1],
+                ['multiplier', 'Multiplier', colorCode[2], 2],
+                ['tolerance', 'Tolerance', colorCode[3], 3],
             ]
             break
         case 5:
             columnNames = [
-                ['digit1', 'Band 1'],
-                ['digit2', 'Band 2'],
-                ['digit3', 'Band 3'],
-                ['multiplier', 'Multiplier'],
-                ['tolerance', 'Tolerance'],
+                ['digit1', 'Band 1', colorCode[0], 0],
+                ['digit2', 'Band 2', colorCode[1], 1],
+                ['digit3', 'Band 3', colorCode[2], 2],
+                ['multiplier', 'Multiplier', colorCode[3], 3],
+                ['tolerance', 'Tolerance', colorCode[4], 4],
             ]
             break
         case 6:
             columnNames = [
-                ['digit1', 'Band 1'],
-                ['digit2', 'Band 2'],
-                ['digit3', 'Band 3'],
-                ['multiplier', 'Multiplier'],
-                ['tolerance', 'Tolerance'],
-                ['temp-coef', 'Temperature Coefficient'],
+                ['digit1', 'Band 1', colorCode[0], 0],
+                ['digit2', 'Band 2', colorCode[1], 1],
+                ['digit3', 'Band 3', colorCode[2], 2],
+                ['multiplier', 'Multiplier', colorCode[3], 3],
+                ['tolerance', 'Tolerance', colorCode[4], 4],
+                ['tempCoefficient', 'Temperature Coefficient', colorCode[5], 5],
             ]
             break
     }
+    console.log(columnNames)
+
+    function newColorCode(colorName, index) {}
 
     return (
         <div id="color-picker-container">
@@ -54,6 +62,8 @@ const ColorPicker = () => {
                     columnName={columnName}
                     key={idx}
                     COLORS={COLORS}
+                    colorCode={colorCode}
+                    setColorCode={newColorCode}
                 />
             ))}
         </div>
