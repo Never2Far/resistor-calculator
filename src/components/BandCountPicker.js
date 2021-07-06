@@ -1,16 +1,18 @@
 import React from 'react'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
-import { setBandCount, setValue } from '../actions/resistorActions'
+import { setBandCount, updateValue } from '../actions/resistorActions'
 import { useSelector, useDispatch } from 'react-redux'
 
-const BandCountPicker = () => {
+const BandCountPicker = (props) => {
     const dispatch = useDispatch()
-    const count = useSelector((state) => state.resistor.bandCount)
+    // const count = useSelector((state) => state.resistor.bandCount)
+    const count = props.bandCount
 
     function handleChange(value) {
         dispatch(setBandCount(value))
         // dispatch(setValue(47000))
+        // dispatch(updateValue())
     }
 
     const countChoices = [3, 4, 5, 6]
