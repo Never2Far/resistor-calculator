@@ -14,7 +14,7 @@ function resistor(
         digit2: 7,
         digit3: null,
         multiplier: 1,
-        tolerance: 0.05,
+        tolerance: 5,
         tempCoefficient: null,
     },
     action
@@ -30,7 +30,7 @@ function resistor(
                     newState.tempCoefficient = null
                     break
                 case 4:
-                    newState.tempCoefficent = null
+                    newState.tempCoefficient = null
                     newState.tolerance = null
                     break
                 case 3:
@@ -50,6 +50,10 @@ function resistor(
 
             return Object.assign({}, { ...state }, { colorCode })
 
+        case 'UPDATE_VALUE':
+            const value = action.payload
+            return Object.assign({}, { ...state }, { value })
+
         case 'SET_VALUE':
             console.log(action.payload)
             return Object.assign({}, { ...state }, action.payload)
@@ -62,6 +66,10 @@ function resistor(
             update[action.payload.digitName] = action.payload.value
             console.log(update)
             return Object.assign({}, { ...state }, update)
+
+        // case 'UPDATE_COLOR_CODE':
+        //     console.log(action.payload)
+        //     return Object.assign({}, {...state}, {})
     }
 }
 
