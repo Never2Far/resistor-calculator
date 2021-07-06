@@ -130,6 +130,10 @@
       margin-right: 10px;
   }
   
+  .color-band .white {
+      border-style: none dashed none;
+  }
+  
   .color-band-last {
       height: 200px;
       width: 50px;
@@ -427,7 +431,7 @@
   
   .white {
         background-color: white;
-          border: none dashed none dashed;
+          border-style: solid dashed solid dashed;
           border-width: 1px;
           border-color: black;
           color: black;   
@@ -477,4 +481,8 @@
         border-style: solid;
         border-width: 2px;
         border-color: black;
+    }
+
+    .color-band .white {
+        border-style: none dashed none;
     }
