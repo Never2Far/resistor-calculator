@@ -5,8 +5,8 @@ import ColorBand from './ColorBand'
 const ColorCode = (props) => {
     //   const   colorCode = ["yellow", "blue", "green", "gold"]
 
-    // const colorCode = useSelector((state) => state.resistor.colorCode)
-    const colorCode = props.colorCode
+    const colorCode = useSelector((state) => state.resistor.colorCode)
+    // const colorCode = props.colorCode
 
     const checkPos = (index) => {
         switch (index) {
