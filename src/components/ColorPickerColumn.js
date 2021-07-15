@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
-import { colorFromDigit, choicesFromColumnName } from '../utilities/utility'
+// import { colorFromDigit, choicesFromColumnName } from '../utilities/utility'
 import {
     updateColorCode,
     setValueFromColorCode,
@@ -13,22 +13,27 @@ import {
 const ColorPickerColumn = (props) => {
     const columnName = props.columnName[0]
     const columnDisplayName = props.columnName[1]
-    const currentColor = props.columnName[2]
-    const codeIndex = props.columnName[3]
-    const colorCode = props.colorCode
-    console.log(currentColor)
-    const dispatch = useDispatch()
-    console.log(props.COLORS)
+    // const currentColor = props.columnName[2]
+    // const codeIndex = props.columnName[3]
+    const codeIndex = props.pos
 
+    // const colorCode = props.colorCode
+    const colorCode = useSelector((state) => state.resistor.colorCode)
+    // console.log(currentColor)
+    const dispatch = useDispatch()
+    // console.log(props.COLORS)
+    const currentColor = useSelector(
+        (state) => state.resistor.colorCode[codeIndex]
+    )
     // const colorChoices = choicesFromColumnName(columnName, props.COLORS)
 
-    const [columnValue, setColumnValue] = useState(currentColor)
+    // const [columnValue, setColumnValue] = useState(currentColor)
 
     const handleChange = (colorName) => {
-        console.log(colorName)
-        setColumnValue(colorName)
+        // console.log(colorName)
+        // setColumnValue(colorName)
         dispatch(updateColorCode(colorName, codeIndex))
-        // dispatch(setValueFromColorCode(colorCode))
+        dispatch(setValueFromColorCode(colorCode))
         dispatch(setDigit(columnName, colorName))
         dispatch(updateValue())
 
@@ -74,11 +79,11 @@ const ColorPickerColumn = (props) => {
         default:
             break
     }
-    console.log(colorKeys)
-    const colors = colorKeys.map((colorKey) => {
-        return props.COLORS[colorKey]
-    })
-    console.log(colors)
+    // console.log(colorKeys)
+    // const colors = colorKeys.map((colorKey) => {
+    //     return props.COLORS[colorKey]
+    // })
+    // console.log(colors)
 
     return (
         <>
@@ -91,7 +96,7 @@ const ColorPickerColumn = (props) => {
                     size="sm"
                     name={`${columnName}-picker`}
                     onChange={handleChange}
-                    value={columnValue}
+                    value={currentColor}
                 >
                     {colorKeys.map((color, idx) => (
                         <ToggleButton

@@ -3,16 +3,16 @@ import { useSelector } from 'react-redux'
 // import ColorChoiceColumn from './ColorChoiceColumn'
 import './Resistor.css'
 import ColorPickerColumn from './ColorPickerColumn'
-import { updateColorCode } from '../actions/resistorActions'
+// import { updateColorCode } from '../actions/resistorActions'
 
 const ColorPicker = (props) => {
-    // const bandCount = useSelector((state) => state.resistor.bandCount)
-    // const currentColorCode = useSelector((state) => state.resistor.colorCode)
-    const bandCount = props.bandCount
-    const currentColorCode = props.colorCode
+    const bandCount = useSelector((state) => state.resistor.bandCount)
+    const colorCode = useSelector((state) => state.resistor.colorCode)
+    // const bandCount = props.bandCount
+    // const colorCode = props.colorCode
     const COLORS = useSelector((state) => state.colors.colors)
 
-    const [colorCode, setColorCode] = useState(currentColorCode)
+    // const [colorCode, setColorCode] = useState(currentColorCode)
     // let columnNames = [['digit1', 'Band 1'], ['digit2', 'Band 2'], ['digit3', 'Band 3'], ['multiplier', 'Multiplier'], ['tolerance', 'Tolerance'], ['temp-coef', 'Temperature Coefficient']]
     let columnNames
     switch (bandCount) {
@@ -51,9 +51,9 @@ const ColorPicker = (props) => {
             ]
             break
     }
-    console.log(columnNames)
+    // console.log(columnNames)
 
-    function newColorCode(colorName, index) {}
+    // function newColorCode(colorName, index) {}
 
     return (
         <div id="color-picker-container">
@@ -63,7 +63,8 @@ const ColorPicker = (props) => {
                     key={idx}
                     COLORS={COLORS}
                     colorCode={colorCode}
-                    setColorCode={newColorCode}
+                    pos={columnNames.indexOf(columnName)}
+                    // setColorCode={setColorCode}
                 />
             ))}
         </div>
