@@ -1,55 +1,20 @@
-function colors(state = { colors: [], loading: false, loaded: false }, action) {
+function colors(state = { colors: {}, loading: false, loaded: false }, action) {
     switch (action.type) {
         case 'FETCHING_COLORS':
             console.log('Fetching Colors...')
-            return Object.assign(
-                {},
-                { ...state },
-                { colors: [...state.colors] },
-                { loading: true }
-            )
+            return Object.assign({}, { ...state }, { loading: true })
 
-        case 'ADD_COLOR':
-            return Object.assign(
-                {},
-                { ...state },
-                { colors: [...state.colors, action.payload] }
-            )
+        case 'COLOR_FETCHED':
+            const newColor = {}
+            newColor[action.payload.name.toUpperCase()] = action.payload
+            const colors = Object.assign({}, { ...state.colors }, newColor)
+            return Object.assign({}, { ...state }, { colors })
 
-        case 'ALL_COLORS_ADDED':
-            const [
-                BLACK,
-                BROWN,
-                RED,
-                ORANGE,
-                YELLOW,
-                GREEN,
-                BLUE,
-                VIOLET,
-                GREY,
-                WHITE,
-                GOLD,
-                SILVER,
-            ] = state.colors
-            const colors = {
-                BLACK,
-                BROWN,
-                RED,
-                ORANGE,
-                YELLOW,
-                GREEN,
-                BLUE,
-                VIOLET,
-                GREY,
-                WHITE,
-                GOLD,
-                SILVER,
-            }
+        case 'ALL_COLORS_FETCHED':
             console.log('All colors added!')
             return Object.assign(
                 {},
                 { ...state },
-                { colors },
                 {
                     loading: false,
                     loaded: true,
