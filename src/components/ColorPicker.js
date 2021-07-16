@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 // import ColorChoiceColumn from './ColorChoiceColumn'
 import './Resistor.css'
-import ColorPickerColumn from './ColorPickerColumn'
+import ColorPickerColumnRadios from './ColorPickerColumnRadios'
 // import { updateColorCode } from '../actions/resistorActions'
 
 const ColorPicker = (props) => {
@@ -56,18 +56,24 @@ const ColorPicker = (props) => {
     // function newColorCode(colorName, index) {}
 
     return (
-        <div id="color-picker-container">
-            {columnNames.map((columnName, idx) => (
-                <ColorPickerColumn
-                    columnName={columnName}
-                    key={idx}
-                    COLORS={COLORS}
-                    colorCode={colorCode}
-                    pos={columnNames.indexOf(columnName)}
-                    // setColorCode={setColorCode}
-                />
-            ))}
-        </div>
+        <>
+            <div id={'color-picker-title'} className={'centered'}>
+                {'Choose the colors of the bands:'}
+            </div>
+            <div id="color-picker-container" className={'centered'}>
+                {columnNames.map((columnName, idx) => (
+                    <ColorPickerColumnRadios
+                        columnName={columnName}
+                        key={idx}
+                        COLORS={COLORS}
+                        colorCode={colorCode}
+                        pos={columnNames.indexOf(columnName)}
+                        // setColorCode={setColorCode}
+                    />
+                ))}
+            </div>
+            <footer id="footer">©2021 Seth Near</footer>
+        </>
     )
 }
 
