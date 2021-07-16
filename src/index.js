@@ -18,9 +18,9 @@ store.dispatch(fetchColors())
 
 ReactDOM.render(
     <Auth0Provider
-        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        domain="near-net.us.auth0.com"
         // domain="auth.near-net.com"
-        clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
+        clientId="QoNmTgdo3zWNPxxFoeGc6p3Cu9aZhks4"
         redirectUri={window.location.origin}
     >
         <Provider store={store}>
