@@ -19,7 +19,12 @@ function App() {
                 <LoginButton />
                 <LogoutButton />
                 <Resistor resistor={resistor} />
-                <BandCountPicker bandCount={resistor.bandCount} />
+                <div id={'band-count-picker-text'} className={'centered'}>
+                    {'Choose The number of bands on the resistor: '}
+                </div>
+                <div id={'band-count-picker-container'}>
+                    <BandCountPicker bandCount={resistor.bandCount} />
+                </div>
                 <ColorPicker
                     bandCount={resistor.bandCount}
                     colorCode={resistor.colorCode}

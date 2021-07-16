@@ -20,7 +20,7 @@ const BandCountPicker = (props) => {
     return (
         <>
             <br></br>
-            {'Choose The number of bands on the resistor: '}
+
             <ToggleButtonGroup
                 type="radio"
                 name="band-count"
