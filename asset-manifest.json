@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/resistor-calculator/static/css/main.201b85a3.chunk.css",
-    "main.js": "/resistor-calculator/static/js/main.ebbf4bfe.chunk.js",
-    "main.js.map": "/resistor-calculator/static/js/main.ebbf4bfe.chunk.js.map",
-    "runtime-main.js": "/resistor-calculator/static/js/runtime-main.6c516f71.js",
-    "runtime-main.js.map": "/resistor-calculator/static/js/runtime-main.6c516f71.js.map",
-    "static/css/2.150d169a.chunk.css": "/resistor-calculator/static/css/2.150d169a.chunk.css",
-    "static/js/2.ca17829f.chunk.js": "/resistor-calculator/static/js/2.ca17829f.chunk.js",
-    "static/js/2.ca17829f.chunk.js.map": "/resistor-calculator/static/js/2.ca17829f.chunk.js.map",
-    "static/js/3.51da5a57.chunk.js": "/resistor-calculator/static/js/3.51da5a57.chunk.js",
-    "static/js/3.51da5a57.chunk.js.map": "/resistor-calculator/static/js/3.51da5a57.chunk.js.map",
-    "index.html": "/resistor-calculator/index.html",
-    "static/css/2.150d169a.chunk.css.map": "/resistor-calculator/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.201b85a3.chunk.css.map": "/resistor-calculator/static/css/main.201b85a3.chunk.css.map",
-    "static/js/2.ca17829f.chunk.js.LICENSE.txt": "/resistor-calculator/static/js/2.ca17829f.chunk.js.LICENSE.txt",
-    "static/media/Resistor.css": "/resistor-calculator/static/media/Greenlights-3XmX.93d26d88.otf"
+    "main.css": "/static/css/main.8a8a74af.chunk.css",
+    "main.js": "/static/js/main.ebbf4bfe.chunk.js",
+    "main.js.map": "/static/js/main.ebbf4bfe.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9a8bd6ed.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9a8bd6ed.js.map",
+    "static/css/2.150d169a.chunk.css": "/static/css/2.150d169a.chunk.css",
+    "static/js/2.ca17829f.chunk.js": "/static/js/2.ca17829f.chunk.js",
+    "static/js/2.ca17829f.chunk.js.map": "/static/js/2.ca17829f.chunk.js.map",
+    "static/js/3.51da5a57.chunk.js": "/static/js/3.51da5a57.chunk.js",
+    "static/js/3.51da5a57.chunk.js.map": "/static/js/3.51da5a57.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.8a8a74af.chunk.css.map": "/static/css/main.8a8a74af.chunk.css.map",
+    "static/js/2.ca17829f.chunk.js.LICENSE.txt": "/static/js/2.ca17829f.chunk.js.LICENSE.txt",
+    "static/media/Resistor.css": "/static/media/Greenlights-3XmX.93d26d88.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.6c516f71.js",
+    "static/js/runtime-main.9a8bd6ed.js",
     "static/css/2.150d169a.chunk.css",
     "static/js/2.ca17829f.chunk.js",
-    "static/css/main.201b85a3.chunk.css",
+    "static/css/main.8a8a74af.chunk.css",
     "static/js/main.ebbf4bfe.chunk.js"
   ]
 }
