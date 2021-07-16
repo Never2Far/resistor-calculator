@@ -15,12 +15,12 @@ function App() {
 
     if (colorsLoaded)
         return (
-            <Container>
+            <Container id="page-container">
                 <LoginButton />
                 <LogoutButton />
                 <Resistor resistor={resistor} />
                 <div id={'band-count-picker-text'} className={'centered'}>
-                    {'Choose The number of bands on the resistor: '}
+                    {'Choose the number of bands on the resistor: '}
                 </div>
                 <div id={'band-count-picker-container'}>
                     <BandCountPicker bandCount={resistor.bandCount} />
