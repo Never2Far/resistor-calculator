@@ -16,6 +16,8 @@ function App() {
     if (colorsLoaded)
         return (
             <Container id="page-container">
+                <LoginButton />
+                <LogoutButton />
                 <Resistor resistor={resistor} />
                 <div id={'band-count-picker-text'} className={'centered'}>
                     {'Choose the number of bands on the resistor: '}
