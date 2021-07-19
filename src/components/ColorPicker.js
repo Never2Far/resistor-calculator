@@ -60,7 +60,7 @@ const ColorPicker = (props) => {
             <div id={'color-picker-title'} className={'centered'}>
                 {'Choose the colors of the bands:'}
             </div>
-            <div id="color-picker-container" className={'centered'}>
+            <div id="color-picker-container" className={'container'}>
                 {columnNames.map((columnName, idx) => (
                     <ColorPickerColumnRadios
                         columnName={columnName}
