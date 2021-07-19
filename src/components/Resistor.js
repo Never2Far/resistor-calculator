@@ -19,7 +19,6 @@ const Resistor = (props) => {
                     <ColorCode colorCode={resistor.colorCode} />
                 </div>
                 <div id="right-top">
-                    <button id="signout-button">Sign Out</button>
                     <span className="title-text">Calculator</span>
                 </div>
                 <div id="right-bottom"></div>
