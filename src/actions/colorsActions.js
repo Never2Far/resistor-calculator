@@ -1,6 +1,6 @@
 export function fetchColors() {
     return (dispatch) => {
-        console.log('dispatching')
+        // console.log('dispatching')
         dispatch({ type: 'FETCHING_COLORS' })
         // https://glacial-savannah-70189.herokuapp.com/colors
         fetch('http://localhost:3001/colors')
