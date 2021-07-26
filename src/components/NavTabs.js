@@ -5,6 +5,7 @@ import Tabs from 'react-bootstrap/Tabs'
 // import Nav from 'react-bootstrap/Nav'
 import ColorCodeTab from './ColorCodeTab'
 import Spinner from 'react-bootstrap/Spinner'
+import SeriesTab from './SeriesTab'
 
 const NavTabs = () => {
     const [key, setKey] = useState('colorCode')
@@ -12,7 +13,12 @@ const NavTabs = () => {
     const colorsLoaded = useSelector((state) => state.colors.loaded)
 
     return (
-        <Tabs id="nav-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
+        <Tabs
+            id="nav-tabs"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            transition={false}
+        >
             <Tab eventKey="colorCode" title="Color Code">
                 {colorsLoaded ? (
                     <ColorCodeTab />
@@ -20,7 +26,9 @@ const NavTabs = () => {
                     <Spinner animation="border" />
                 )}
             </Tab>
-            <Tab eventKey="series" title="Series"></Tab>
+            <Tab eventKey="series" title="Series">
+                <SeriesTab />
+            </Tab>
             <Tab eventKey="parallel" title="Parallel"></Tab>
         </Tabs>
     )

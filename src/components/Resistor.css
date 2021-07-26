@@ -512,4 +512,22 @@
         font-size: 1.5rem;
     }
 
-    
+    .result {
+        font-size: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .result-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        align-content: stretch;
+        align-self: auto;
+        flex: 0 0 auto;
+    }
+
+    #series-input-container {
+        width: 275px;
+    }
