@@ -19,10 +19,11 @@ function App() {
 
     return (
         <Container>
-            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             <NavTabs />
         </Container>
     )
 }
 
 export default App
+
+// {isAuthenticated ? <LogoutButton /> : <LoginButton />}
