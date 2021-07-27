@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/resistor-calculator/static/css/main.b404e799.chunk.css",
-    "main.js": "/resistor-calculator/static/js/main.28797fe8.chunk.js",
-    "main.js.map": "/resistor-calculator/static/js/main.28797fe8.chunk.js.map",
+    "main.js": "/resistor-calculator/static/js/main.cf54cfb1.chunk.js",
+    "main.js.map": "/resistor-calculator/static/js/main.cf54cfb1.chunk.js.map",
     "runtime-main.js": "/resistor-calculator/static/js/runtime-main.e33b2c26.js",
     "runtime-main.js.map": "/resistor-calculator/static/js/runtime-main.e33b2c26.js.map",
     "static/css/2.150d169a.chunk.css": "/resistor-calculator/static/css/2.150d169a.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.150d169a.chunk.css",
     "static/js/2.5467a4b4.chunk.js",
     "static/css/main.b404e799.chunk.css",
-    "static/js/main.28797fe8.chunk.js"
+    "static/js/main.cf54cfb1.chunk.js"
   ]
 }
