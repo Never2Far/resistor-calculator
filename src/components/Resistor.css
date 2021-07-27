@@ -528,6 +528,6 @@
         flex: 0 0 auto;
     }
 
-    #series-input-container {
+    .series-input-container {
         width: 275px;
     }

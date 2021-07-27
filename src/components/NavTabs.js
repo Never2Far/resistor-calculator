@@ -6,6 +6,8 @@ import Tabs from 'react-bootstrap/Tabs'
 import ColorCodeTab from './ColorCodeTab'
 import Spinner from 'react-bootstrap/Spinner'
 import SeriesTab from './SeriesTab'
+import ParallelTab from './ParallelTab'
+import LoginButton from './LoginButton'
 
 const NavTabs = () => {
     const [key, setKey] = useState('colorCode')
@@ -18,6 +20,7 @@ const NavTabs = () => {
             activeKey={key}
             onSelect={(k) => setKey(k)}
             transition={false}
+            variant="pills"
         >
             <Tab eventKey="colorCode" title="Color Code">
                 {colorsLoaded ? (
@@ -29,7 +32,9 @@ const NavTabs = () => {
             <Tab eventKey="series" title="Series">
                 <SeriesTab />
             </Tab>
-            <Tab eventKey="parallel" title="Parallel"></Tab>
+            <Tab eventKey="parallel" title="Parallel">
+                <ParallelTab />
+            </Tab>
         </Tabs>
     )
 }
