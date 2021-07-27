@@ -24,3 +24,5 @@ yarn-error.log*
 .env
 trash/
 .prettierignore
+.prettierrc
+.prettier.config.js

@@ -159,7 +159,7 @@
   }
   
   #component-value {
-      font-size: 3rem;
+      font-size: 1.5rem;
       display: flex;
       justify-content: center;
       flex-wrap: nowrap;
@@ -172,7 +172,7 @@
   #color-picker-container {
       display: inline-flex;
       justify-content: center;
-      width: 775px;
+      min-width: 775px;
       min-height: 400px;
       height: fit-content;
       border-color: black;
@@ -180,8 +180,8 @@
       border-top-width: 5px;
       border-bottom-width: 5px;
       /* padding-left: 10px; */
-      margin-left: 170px;
-      margin-right: 92px;
+      /* margin-left: 170px; */
+      /* margin-right: 92px; */
       margin-bottom: 2.5rem;
   }
   
@@ -509,7 +509,25 @@
 
    
     #band-count-picker-text, #color-picker-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
-    
+    .result {
+        font-size: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .result-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        align-content: stretch;
+        align-self: auto;
+        flex: 0 0 auto;
+    }
+
+    .series-input-container {
+        width: 275px;
+    }

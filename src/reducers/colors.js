@@ -1,7 +1,7 @@
 function colors(state = { colors: {}, loading: false, loaded: false }, action) {
     switch (action.type) {
         case 'FETCHING_COLORS':
-            console.log('Fetching Colors...')
+            // console.log('Fetching Colors...')
             return Object.assign({}, { ...state }, { loading: true })
 
         case 'COLOR_FETCHED':
@@ -11,7 +11,7 @@ function colors(state = { colors: {}, loading: false, loaded: false }, action) {
             return Object.assign({}, { ...state }, { colors })
 
         case 'ALL_COLORS_FETCHED':
-            console.log('All colors added!')
+            // console.log('All colors added!')
             return Object.assign(
                 {},
                 { ...state },

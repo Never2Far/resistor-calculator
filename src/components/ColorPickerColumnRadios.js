@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import Form from 'react-bootstrap/Form'
+import FormCheck from 'react-bootstrap/FormCheck'
+import FormCheckInput from 'react-bootstrap/FormCheckInput'
+import FormCheckLabel from 'react-bootstrap/FormCheckLabel'
 // import { colorFromDigit, choicesFromColumnName } from '../utilities/utility'
 import {
     updateColorCode,
@@ -36,7 +39,7 @@ const ColorPickerColumnRadios = (props) => {
         dispatch(updateColorCode(colorName, codeIndex))
         dispatch(setValueFromColorCode(colorCode))
         dispatch(setDigit(columnName, colorName))
-        dispatch(updateValue())
+        // dispatch(updateValue())
 
         // dispatch()
     }
@@ -91,16 +94,27 @@ const ColorPickerColumnRadios = (props) => {
             <span className={'column-title'}>{columnDisplayName}</span>
             <Form>
                 {colorKeys.map((color, idx) => (
-                    <Form.Check
+                    <FormCheck
                         size="lg"
                         type="radio"
-                        label={props.COLORS[color].name}
                         className={props.COLORS[color].name}
-                        value={props.COLORS[color].name}
                         key={idx}
                         onChange={(event) => handleChange(event.target.value)}
-                        checked={currentColor === props.COLORS[color].name}
-                    />
+                    >
+                        <FormCheckLabel>
+                            <FormCheckInput
+                                type="radio"
+                                value={props.COLORS[color].name}
+                                onChange={(event) =>
+                                    handleChange(event.target.value)
+                                }
+                                checked={
+                                    currentColor === props.COLORS[color].name
+                                }
+                            />
+                            {props.COLORS[color].name}
+                        </FormCheckLabel>
+                    </FormCheck>
                 ))}
             </Form>
         </div>

@@ -21,7 +21,8 @@ ReactDOM.render(
         domain="near-net.us.auth0.com"
         // domain="auth.near-net.com"
         clientId="QoNmTgdo3zWNPxxFoeGc6p3Cu9aZhks4"
-        redirectUri={window.location.origin}
+        // redirectUri={window.location.origin}
+        redirectUri={'http://localhost:3000'}
     >
         <Provider store={store}>
             <App />

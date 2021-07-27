@@ -50,7 +50,7 @@ export const resistor = (
             )
 
         case 'SET_COLOR_CODE':
-            console.log(`color code: ${action.payload}`)
+            // console.log(`color code: ${action.payload}`)
             const colorCode = action.payload
 
             return Object.assign({}, { ...state }, { colorCode })
@@ -60,20 +60,20 @@ export const resistor = (
             return Object.assign({}, { ...state }, { value })
 
         case 'SET_VALUE':
-            console.log(action.payload)
+            // console.log(action.payload)
             return Object.assign({}, { ...state }, action.payload)
         default:
             return state
 
         case 'SET_DIGIT':
-            console.log(action.payload)
+            // console.log(action.payload)
             const update = {}
             update[action.payload.digitName] = action.payload.value
-            console.log(update)
+            // console.log(update)
             return Object.assign({}, { ...state }, update)
 
         // case 'UPDATE_COLOR_CODE':
-        //     console.log(action.payload)
+        // console.log(action.payload)
         //     return Object.assign({}, {...state}, {})
     }
 }

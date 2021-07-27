@@ -1,10 +1,10 @@
 export function setDigit(digitName, color) {
     return (dispatch, getState) => {
-        console.log(digitName)
-        console.log(color)
+        // console.log(digitName)
+        // console.log(color)
         const colors = getState().colors.colors
-        console.log(color.toUpperCase())
-        console.log(colors[color.toUpperCase()].digit)
+        // console.log(color.toUpperCase())
+        // console.log(colors[color.toUpperCase()].digit)
         let value
         if (['digit1', 'digit2', 'digit3'].includes(digitName))
             value = colors[color.toUpperCase()].digit
@@ -44,7 +44,7 @@ export function updateValue() {
                 ) * resistor.multiplier
         }
 
-        console.log(value)
+        // console.log(value)
         dispatch({ type: 'UPDATE_VALUE', payload: value })
     }
 }
@@ -79,7 +79,7 @@ export function setValueFromColorCode(colorCode) {
     return (dispatch, getState) => {
         const bandCount = colorCode.length
         const colors = getState().colors.colors
-        console.log(colors)
+        // console.log(colors)
         // for (const color in colorCode) {
         const digits = {}
         // let value
@@ -180,10 +180,10 @@ export function updateColorCode(newColorName, codeIndex) {
 export function setValue(value) {
     return (dispatch, getState) => {
         const bandCount = getState().resistor.bandCount
-        console.log(value)
+        // console.log(value)
         let digits = `${value}`.split('')
         const newValue = { value }
-        console.log(newValue)
+        // console.log(newValue)
         newValue.digit1 = parseInt(digits.shift())
         newValue.digit2 = parseInt(digits.shift())
 
@@ -200,7 +200,7 @@ export function setValue(value) {
             default:
                 break
         }
-        console.log(newValue)
+        // console.log(newValue)
         dispatch({ type: 'SET_VALUE', payload: newValue })
     }
 }
